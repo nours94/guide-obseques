@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide Obsèques — Conseil et accompagnement pour les familles</title>
+  <meta name="description" content="Guide Obsèques vous accompagne dans les démarches suite à un décès : droits des familles, démarches administratives, aide au devis funéraire. Conseils gratuits et humains.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ardoise:   #1e2d3d;
+      --ardoise-2: #2c3e52;
+      --or:        #b8975a;
+      --or-clair:  #d4b483;
+      --creme:     #f8f5f0;
+      --texte:     #2c2c2c;
+      --muted:     #6b6b6b;
+      --blanc:     #ffffff;
+      --bordure:   #e4ddd4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--creme);
+      color: var(--texte);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── LIGNE OR SIGNATURE ─────────────────────────── */
+    .ligne-or {
+      width: 60px;
+      height: 2px;
+      background: var(--or);
+      margin: 0 auto 28px;
+    }
+    .ligne-or--gauche { margin-left: 0; }
+
+    /* ── HEADER ─────────────────────────────────────── */
+    header {
+      background: var(--ardoise);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(184,151,90,.25);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--blanc);
+      letter-spacing: .02em;
+    }
+    .logo span { color: var(--or); }
+    nav { display: flex; gap: 28px; align-items: center; }
+    nav a {
+      font-size: .9rem;
+      color: rgba(255,255,255,.78);
+      transition: color .2s;
+      font-weight: 300;
+      letter-spacing: .03em;
+    }
+    nav a:hover { color: var(--or-clair); }
+    .nav-cta {
+      background: var(--or);
+      color: var(--ardoise) !important;
+      padding: 9px 20px;
+      border-radius: 3px;
+      font-weight: 600 !important;
+      font-size: .85rem !important;
+    }
+    .nav-cta:hover { background: var(--or-clair) !important; color: var(--ardoise) !important; }
+
+    /* ── HERO ───────────────────────────────────────── */
+    .hero {
+      background: var(--ardoise);
+      color: var(--blanc);
+      padding: 90px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(184,151,90,.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: .82rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 22px;
+      font-weight: 300;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.15;
+      font-weight: 600;
+      max-width: 780px;
+      margin: 0 auto 24px;
+      letter-spacing: -.01em;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--or-clair);
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.72);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 3px;
+      font-size: .95rem;
+      font-family: 'Source Serif 4', serif;
+      transition: all .2s;
+      font-weight: 400;
+    }
+    .btn-or {
+      background: var(--or);
+      color: var(--ardoise);
+      font-weight: 600;
+    }
+    .btn-or:hover { background: var(--or-clair); }
+    .btn-contour {
+      border: 1px solid rgba(255,255,255,.35);
+      color: rgba(255,255,255,.88);
+    }
+    .btn-contour:hover {
+      border-color: var(--or);
+      color: var(--or-clair);
+    }
+    .hero-note {
+      margin-top: 28px;
+      font-size: .82rem;
+      color: rgba(255,255,255,.42);
+      letter-spacing: .04em;
+    }
+
+    /* ── URGENCE ─────────────────────────────────────── */
+    .urgence-band {
+      background: var(--blanc);
+      border-top: 3px solid var(--or);
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .urgence-band p {
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .urgence-band strong { color: var(--ardoise); }
+    .urgence-band a { color: var(--or); text-decoration: underline; }
+
+    /* ── SECTIONS COMMUNES ───────────────────────────── */
+    .section { padding: 80px 24px; }
+    .section--blanc { background: var(--blanc); }
+    .section--creme { background: var(--creme); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-titre {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--ardoise);
+      margin-bottom: 12px;
+      line-height: 1.2;
+      text-align: center;
+    }
+    .section-sous-titre {
+      text-align: center;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 620px;
+      margin: 0 auto 52px;
+      font-weight: 300;
+    }
+
+    /* ── ÉTAPES DÉMARCHES ───────────────────────────── */
+    .etapes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .etape {
+      background: var(--blanc);
+      border: 1px solid var(--bordure);
+      border-radius: 4px;
+      padding: 32px 28px;
+      position: relative;
+    }
+    .etape-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--or);
+      opacity: .35;
+      line-height: 1;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .etape h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--ardoise);
+      margin-bottom: 10px;
+    }
+    .etape p {
+      font-size: .93rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── THÈMES DE CONSEIL ───────────────────────────── */
+    .themes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .theme-card {
+      background: var(--creme);
+      border-left: 3px solid var(--or);
+      padding: 24px 22px;
+      border-radius: 0 4px 4px 0;
+      transition: box-shadow .2s;
+    }
+    .theme-card:hover { box-shadow: 0 4px 16px rgba(30,45,61,.08); }
+    .theme-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .theme-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--ardoise);
+      margin-bottom: 8px;
+    }
+    .theme-card p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .theme-lien {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: .83rem;
+      color: var(--or);
+      font-weight: 600;
+      letter-spacing: .03em;
+    }
+    .theme-lien:hover { text-decoration: underline; }
+
+    /* ── CONSEILLER IA ───────────────────────────────── */
+    .ia-section {
+      background: var(--ardoise);
+      color: var(--blanc);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .ia-section .section-titre { color: var(--blanc); }
+    .ia-section .section-sous-titre { color: rgba(255,255,255,.65); }
+    .ia-cards {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .ia-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(184,151,90,.25);
+      border-radius: 4px;
+      padding: 20px 22px;
+      max-width: 280px;
+      text-align: left;
+    }
+    .ia-card-titre {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--or-clair);
+      margin-bottom: 8px;
+    }
+    .ia-card p {
+      font-size: .87rem;
+      color: rgba(255,255,255,.65);
+      line-height: 1.6;
+    }
+    .ia-exemple {
+      font-size: .82rem;
+      color: rgba(255,255,255,.38);
+      margin-top: 28px;
+      font-style: italic;
+    }
+
+    /* ── DROITS & AIDES ──────────────────────────────── */
+    .droits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .droit-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 22px;
+      background: var(--blanc);
+      border: 1px solid var(--bordure);
+      border-radius: 4px;
+    }
+    .droit-icone {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .droit-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--ardoise);
+      margin-bottom: 6px;
+    }
+    .droit-item p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── TÉMOIGNAGE ──────────────────────────────────── */
+    .temoignage-section {
+      background: var(--blanc);
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .temoignage {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .temoignage blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--ardoise);
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+    .temoignage-auteur {
+      font-size: .85rem;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* ── PARTENAIRE ──────────────────────────────────── */
+    .partenaire-band {
+      background: var(--creme);
+      border-top: 1px solid var(--bordure);
+      border-bottom: 1px solid var(--bordure);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .partenaire-band p {
+      font-size: .88rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .partenaire-nom {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--ardoise);
+    }
+    .partenaire-detail {
+      font-size: .83rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--ardoise);
+      color: rgba(255,255,255,.6);
+      padding: 48px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--blanc);
+      margin-bottom: 10px;
+    }
+    .footer-brand span { color: var(--or); }
+    .footer-desc { font-size: .87rem; line-height: 1.65; }
+    .footer-col h4 {
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--or);
+      margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a {
+      font-size: .87rem;
+      color: rgba(255,255,255,.6);
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--or-clair); }
+    .footer-copy {
+      max-width: 1100px;
+      margin: 24px auto 0;
+      font-size: .8rem;
+      color: rgba(255,255,255,.35);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .droits-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-copy { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────── -->
+<header>
+  <div class="nav-inner">
+    <a href="/" class="logo">Guide<span>Obsèques</span></a>
+    <nav>
+      <a href="/demarches.html">Démarches</a>
+      <a href="/droits.html">Vos droits</a>
+      <a href="/aides.html">Aides financières</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://chatgpt.com" target="_blank" class="nav-cta">Conseiller IA</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── HERO ───────────────────────────────────────────── -->
+<section class="hero">
+  <p class="hero-eyebrow">Accompagnement gratuit pour les familles</p>
+  <h1>Un guide <em>humain</em> pour traverser<br>cette épreuve avec clarté</h1>
+  <p class="hero-sub">Démarches administratives, droits des familles, aide à la lecture d'un devis funéraire — des réponses claires, sans pression commerciale.</p>
+  <div class="hero-actions">
+    <a href="/demarches.html" class="btn btn-or">Voir les démarches à suivre</a>
+    <a href="#conseiller" class="btn btn-contour">Parler au conseiller IA</a>
+  </div>
+  <p class="hero-note">Service gratuit · Sans inscription · Disponible 24h/24</p>
+</section>
+
+<!-- ── BANDE URGENCE ───────────────────────────────────── -->
+<div class="urgence-band">
+  <p>Vous venez de perdre un proche ? <strong>Les premières démarches doivent être accomplies dans les 24 heures.</strong> <a href="/demarches.html#urgence">Voir ce qu'il faut faire maintenant →</a></p>
+</div>
+
+<!-- ── ÉTAPES ─────────────────────────────────────────── -->
+<section class="section section--creme">
+  <div class="section-inner">
+    <h2 class="section-titre">Les étapes essentielles</h2>
+    <div class="ligne-or"></div>
+    <p class="section-sous-titre">Après un décès, les démarches s'enchaînent rapidement. Voici les grandes étapes dans l'ordre chronologique.</p>
+    <div class="etapes">
+      <div class="etape">
+        <div class="etape-num">01</div>
+        <h3>Dans les 24 heures</h3>
+        <p>Faire constater le décès par un médecin, obtenir le certificat de décès, déclarer le décès en mairie. Si le décès survient à l'hôpital, l'établissement s'occupe de certaines formalités.</p>
+        <a href="/demarches.html#24h" class="theme-lien">En savoir plus →</a>
+      </div>
+      <div class="etape">
+        <div class="etape-num">02</div>
+        <h3>Choisir les obsèques</h3>
+        <p>Inhumation ou crémation, cérémonie religieuse ou laïque, lieu de sépulture. Vous avez le droit d'obtenir un devis gratuit et détaillé auprès de plusieurs pompes funèbres avant de décider.</p>
+        <a href="/demarches.html#choix" class="theme-lien">En savoir plus →</a>
+      </div>
+      <div class="etape">
+        <div class="etape-num">03</div>
+        <h3>Dans les 6 jours</h3>
+        <p>Les obsèques doivent avoir lieu dans les 6 jours suivant le décès (hors week-ends et jours fériés). Des dérogations sont possibles en cas de rapatriement depuis l'étranger.</p>
+        <a href="/demarches.html#delais" class="theme-lien">En savoir plus →</a>
+      </div>
+      <div class="etape">
+        <div class="etape-num">04</div>
+        <h3>Les semaines suivantes</h3>
+        <p>Déclaration auprès des organismes sociaux, banques, assurances, employeur. Règlement de la succession. Demande des aides et capitaux décès auxquels vous avez droit.</p>
+        <a href="/demarches.html#apres" class="theme-lien">En savoir plus →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THÈMES DE CONSEIL ───────────────────────────────── -->
+<section class="section section--blanc">
+  <div class="section-inner">
+    <h2 class="section-titre">Nos guides thématiques</h2>
+    <div class="ligne-or"></div>
+    <p class="section-sous-titre">Des informations claires sur chaque aspect des obsèques, rédigées pour les familles — pas pour les professionnels.</p>
+    <div class="themes">
+      <div class="theme-card">
+        <div class="theme-icon">📋</div>
+        <h3>Lire un devis funéraire</h3>
+        <p>Ce qui est obligatoire, ce qui est optionnel, les prix réglementés. Comment comparer deux devis sans se perdre dans le jargon.</p>
+        <a href="/droits.html#devis" class="theme-lien">Lire le guide →</a>
+      </div>
+      <div class="theme-card">
+        <div class="theme-icon">💶</div>
+        <h3>Aides et capitaux décès</h3>
+        <p>Capital décès CPAM, aide sociale aux obsèques, contrats prévoyance, assurance vie. Les sommes auxquelles vous avez droit et comment les obtenir.</p>
+        <a href="/aides.html" class="theme-lien">Voir les aides →</a>
+      </div>
+      <div class="theme-card">
+        <div class="theme-icon">⚖️</div>
+        <h3>Vos droits face aux pompes funèbres</h3>
+        <p>Devis gratuit obligatoire, délai de réflexion, prestations imposées interdites. Ce que la loi vous garantit en période de vulnérabilité.</p>
+        <a href="/droits.html" class="theme-lien">Connaître ses droits →</a>
+      </div>
+      <div class="theme-card">
+        <div class="theme-icon">🕊️</div>
+        <h3>Inhumation ou crémation</h3>
+        <p>Différences pratiques, délais, coûts, réglementation. Ce que vous devez savoir pour respecter les souhaits du défunt et votre budget.</p>
+        <a href="/demarches.html#choix" class="theme-lien">Comparer les options →</a>
+      </div>
+      <div class="theme-card">
+        <div class="theme-icon">🌍</div>
+        <h3>Décès à l'étranger</h3>
+        <p>Rapatriement du corps, démarches consulaires, délais allongés. Une procédure complexe que nous vous expliquons étape par étape.</p>
+        <a href="/demarches.html#etranger" class="theme-lien">Voir la procédure →</a>
+      </div>
+      <div class="theme-card">
+        <div class="theme-icon">🏡</div>
+        <h3>Décès à domicile</h3>
+        <p>Constat médical, appel aux pompes funèbres, chambre funéraire. Les premières heures et ce qu'il faut faire sans délai.</p>
+        <a href="/demarches.html#domicile" class="theme-lien">Lire la procédure →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DROITS ─────────────────────────────────────────── -->
+<section class="section section--creme">
+  <div class="section-inner">
+    <h2 class="section-titre">Vos droits essentiels</h2>
+    <div class="ligne-or"></div>
+    <p class="section-sous-titre">La loi vous protège. Voici ce que vous devez savoir avant de signer quoi que ce soit.</p>
+    <div class="droits-grid">
+      <div class="droit-item">
+        <div class="droit-icone">📄</div>
+        <div>
+          <h3>Devis gratuit et obligatoire</h3>
+          <p>Toute pompe funèbre est obligée de vous remettre un devis détaillé et gratuit avant tout engagement. Vous pouvez en demander plusieurs pour comparer.</p>
+        </div>
+      </div>
+      <div class="droit-item">
+        <div class="droit-icone">🚫</div>
+        <div>
+          <h3>Aucune prestation imposée</h3>
+          <p>Seul le cercueil est obligatoire. Tout le reste (fleurs, faire-part, cercueil de luxe, convoi) est optionnel. Vous choisissez librement.</p>
+        </div>
+      </div>
+      <div class="droit-item">
+        <div class="droit-icone">💰</div>
+        <div>
+          <h3>Capital décès CPAM</h3>
+          <p>Si le défunt était salarié ou demandeur d'emploi, ses ayants droit peuvent percevoir un capital décès de la Sécurité sociale. Montant : 3 703 € en 2024.</p>
+        </div>
+      </div>
+      <div class="droit-item">
+        <div class="droit-icone">🏛️</div>
+        <div>
+          <h3>Aide sociale aux obsèques</h3>
+          <p>Si la famille ne peut pas financer les obsèques, la commune du lieu de décès est obligée d'organiser et de financer un enterrement décent.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a href="/droits.html" class="btn btn-or">Voir tous vos droits</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONSEILLER IA ───────────────────────────────────── -->
+<section class="ia-section" id="conseiller">
+  <div class="section-inner">
+    <h2 class="section-titre">Le conseiller IA Guide Obsèques</h2>
+    <div class="ligne-or"></div>
+    <p class="section-sous-titre">Posez vos questions en langage naturel. Notre conseiller IA vous répond avec bienveillance, à toute heure.</p>
+    <div class="ia-cards">
+      <div class="ia-card">
+        <div class="ia-card-titre">Démarches administratives</div>
+        <p>Quelles démarches faire en premier ? Quels documents rassembler ? Quels délais respecter ?</p>
+      </div>
+      <div class="ia-card">
+        <div class="ia-card-titre">Lecture de devis</div>
+        <p>Qu'est-ce qui est obligatoire dans ce devis ? Ces prix sont-ils normaux ? Que puis-je refuser ?</p>
+      </div>
+      <div class="ia-card">
+        <div class="ia-card-titre">Aides financières</div>
+        <p>À quelles aides ai-je droit ? Comment demander le capital décès ? Qui contacter ?</p>
+      </div>
+      <div class="ia-card">
+        <div class="ia-card-titre">Vos droits</div>
+        <p>La pompe funèbre peut-elle m'imposer cela ? Ai-je le droit de changer d'avis ? Que dit la loi ?</p>
+      </div>
+    </div>
+    <a href="https://chatgpt.com" target="_blank" class="btn btn-or">Ouvrir le conseiller IA</a>
+    <p class="ia-exemple">Exemple : « Mon père vient de décéder à l'hôpital, que dois-je faire dans les prochaines heures ? »</p>
+  </div>
+</section>
+
+<!-- ── TÉMOIGNAGE ─────────────────────────────────────── -->
+<section class="temoignage-section">
+  <div class="temoignage">
+    <div class="ligne-or"></div>
+    <blockquote>
+      « Quand mon mari est décédé, je ne savais pas par où commencer. Ce guide m'a permis de comprendre mes droits et d'éviter des dépenses inutiles dans un moment où je n'avais plus la force de négocier. »
+    </blockquote>
+    <p class="temoignage-auteur">Marie-Claire, 67 ans — Île-de-France</p>
+  </div>
+</section>
+
+<!-- ── PARTENAIRE ─────────────────────────────────────── -->
+<div class="partenaire-band">
+  <p>Données tarifaires fournies en partenariat avec</p>
+  <div class="partenaire-nom">Family Obsèques</div>
+  <div class="partenaire-detail">Pompes funèbres à Plaisir et Septeuil (78) · Yvelines</div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Guide<span>Obsèques</span></div>
+      <p class="footer-desc">Un service d'information et d'accompagnement gratuit pour aider les familles à traverser cette épreuve avec clarté et sérénité. Aucune vente, aucune commission sur les obsèques.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <ul>
+        <li><a href="/demarches.html">Les démarches</a></li>
+        <li><a href="/droits.html">Vos droits</a></li>
+        <li><a href="/aides.html">Aides financières</a></li>
+        <li><a href="/demarches.html#etranger">Décès à l'étranger</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informations</h4>
+      <ul>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/mentions-legales.html">Mentions légales</a></li>
+        <li><a href="/confidentialite.html">Confidentialité</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-copy">
+    <span>© 2026 Guide Obsèques · Service d'information gratuit</span>
+    <span>Les informations fournies sont à titre indicatif et ne constituent pas un conseil juridique.</span>
+  </div>
+</footer>
+
+</body>
+</html>
