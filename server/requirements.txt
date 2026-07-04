@@ -1,4 +1,1 @@
-cd ~/guide-obseques
-cat > server/requirements.txt << 'EOF'
 fastmcp
-EOF
